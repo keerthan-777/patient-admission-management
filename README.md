@@ -1,94 +1,97 @@
-# Patient Admission Management
 
-A responsive patient-admission dashboard built with React and Vite, a FastAPI
-backend, and SQLAlchemy. The app supports patient creation, listing, search,
-filters, editing, deletion, and discharge status.
+# Patient Admission Management System
 
-## Tech stack
+A full-stack web application that helps hospital staff manage admitted patients, maintain patient records, and track admission and discharge status.
 
-- Frontend: React, Vite, Axios
-- Backend: Python, FastAPI, SQLAlchemy
-- Database: SQLite locally; PostgreSQL recommended for production
+## Live Demo
 
-## Run locally
+- **Frontend:** https://patient-admission-management-silk.vercel.app/
+- **GitHub:** https://github.com/keerthan-777/patient-admission-management
 
-1. Start the API:
+## Technology Stack
 
-   ```powershell
-   cd backend
-   python -m venv .venv
-   .\.venv\Scripts\Activate.ps1
-   pip install -r requirements.txt
-   uvicorn main:app --reload
-   ```
+### Frontend
+- React.js
+- CSS
 
-   The API is at `http://localhost:8000`; interactive API docs are at
-   `http://localhost:8000/docs`. Without `DATABASE_URL`, local development uses
-   `backend/patients.db`.
+### Backend
+- Python
+- FastAPI
 
-2. In a separate terminal, start the frontend:
+### Database
+- PostgreSQL
 
-   ```powershell
-   cd frontend
-   npm install
-   npm run dev
-   ```
+## Features
 
-   The Vite app is at `http://localhost:5173`. To use a non-local API, set
-   `VITE_API_URL` in the frontend's local `.env` file to the API base URL.
+- Add new patient records
+- View all registered patients
+- Search patients by name
+- Filter patients by ward, department, and doctor
+- Edit existing patient details
+- Delete patients with confirmation
+- Mark patients as discharged
+- Form validation on frontend and backend
+- Responsive user interface
 
-## Deploy
+## Validation
 
-This layout uses Vercel for the static frontend, Render for FastAPI, and a
-managed PostgreSQL database (for example, Neon). Create the database first and
-keep its connection URL private.
+- Patient name is required and accepts letters only.
+- Age must be between 0 and 120.
+- Gender, ward, department, and doctor are required.
+- Admission date is required and cannot be a future date.
+- Backend independently validates incoming requests.
 
-### Backend (Render)
+## Project Structure
 
-Create a **Web Service** from this repository:
+patient-admission-management/
+├── frontend/
+└── backend/
 
-- Root Directory: `backend`
-- Build Command: `pip install -r requirements.txt`
-- Start Command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
-- Environment variables:
-  - `DATABASE_URL`: the PostgreSQL connection URL from your database provider
-  - `CORS_ORIGINS`: your deployed frontend origin, e.g.
-    `https://your-app.vercel.app` (no trailing slash)
+## Setup Instructions
 
-The backend accepts standard `postgres://` and `postgresql://` URLs and uses the
-PostgreSQL driver declared in `requirements.txt`. Keep the database URL in the
-host's environment settings; never commit it.
+### 1. Clone the repository
 
-### Frontend (Vercel)
+git clone https://github.com/keerthan-777/patient-admission-management.git
 
-Import the same repository as a Vercel project:
+cd patient-admission-management
 
-- Root Directory: `frontend`
-- Framework Preset: Vite
-- Build Command: `npm run build`
-- Output Directory: `dist`
-- Environment variable:
-  - `VITE_API_URL`: the deployed backend origin, e.g.
-    `https://your-api.onrender.com`
+### 2. Frontend Setup
 
-Set the backend's `CORS_ORIGINS` to the final Vercel URL, then redeploy the
-backend if you changed its environment variables. Set both public URLs below
-after deployment.
+cd frontend
 
-- Live app: _add the deployed frontend URL_
-- Backend API: _add the deployed backend URL_
+npm install
+
+npm run dev
+
+### 3. Backend Setup
+
+Open another terminal:
+
+cd backend
+
+Create and activate a Python virtual environment.
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+Run the FastAPI server using the command configured in your backend.
+
+### 4. Environment Variables
+
+Configure the required database connection URL and frontend API base URL in your local environment.
+
+Do not commit passwords, API keys, or other secrets.
 
 ## Screenshots
 
-Add screenshots of the dashboard and the add/edit patient form before
-submission, for example under `docs/screenshots/`, and link them here.
+Add screenshots of:
+1. Dashboard
+2. Patient registration form
+3. Patient list
+4. Search and filters
+5. Edit patient form
 
-## Before sharing the public repository
+## Author
 
-- Do not use real patient information in a public demo.
-- Remove local virtual environments, caches, and the SQLite database from Git
-  tracking. Adding a `.gitignore` does not untrack files that Git already
-  tracks. The database and Python virtual environment were already tracked in
-  this repository; untrack them before your next push, and check repository
-  history for any real patient information before sharing.
-- Never commit `.env` files, database URLs, passwords, or other credentials.
+Keerthan S
