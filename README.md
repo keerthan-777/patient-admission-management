@@ -84,13 +84,13 @@ Configure the required database connection URL and frontend API base URL in your
 Do not commit passwords, API keys, or other secrets.
 
 ## Screenshots
-
-Add screenshots of:
+screenshots of:
 1. Dashboard
-2. Patient registration form
-3. Patient list
-4. Search and filters
-5. Edit patient form
+   <img width="1896" height="962" alt="hospital_dashboard" src="https://github.com/user-attachments/assets/8c963223-1975-43c1-9c62-a510f4d98327" />
+2. patient registraion form
+   <img width="1902" height="965" alt="patient_registration_form" src="https://github.com/user-attachments/assets/8f760669-e308-485b-a93a-3810a5ee619e" />
+
+
 
 ## Author
 
